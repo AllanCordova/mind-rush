@@ -7,3 +7,29 @@
   --text: #e2e8f0;
   --detail: #14b8a6;
 }
+
+body {
+  background-color: var(--bg);
+}
+
+header {
+  background-color: #0e1d3b;
+}
+
+h1 {
+  color: var(--secondary);
+}
+
+h2 {
+  color: var(--text);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
