@@ -1,0 +1,11 @@
+:root {
+  --bg: #0f172a;
+  --primary: #6366f1;
+  --secondary: #f43f5e;
+  --text: #e2e8f0;
+  --detail: #14b8a6;
+}
+
+span {
+  color: var(--text);
+}

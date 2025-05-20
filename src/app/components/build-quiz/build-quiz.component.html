@@ -1,0 +1,43 @@
+<h2>Quiz Estrutura</h2>
+
+<div>
+  <input [(ngModel)]="quiztitle" placeholder="Título do quiz" />
+  <input [(ngModel)]="quizDesc" placeholder="Descrição do quiz" />
+  <button (click)="saveQuiz()">Salvar Quiz</button>
+</div>
+
+<hr />
+
+<h3>Adicionar Pergunta</h3>
+<div>
+  <input [(ngModel)]="questionText" placeholder="Texto da pergunta" />
+  <button (click)="addQuestion()">Adicionar Pergunta</button>
+</div>
+
+<hr />
+
+<h3>Perguntas</h3>
+<ul>
+  @for (question of questions; track $index) {
+  <li>
+    <button (click)="selectQuestion($index)">
+      {{ question.text }}
+      @if ($index === selectedQuestionIndex) {
+      <span> (selecionada)</span>
+      }
+    </button>
+    <ul>
+      @for (answer of question.answers; track $index) {
+      <li>{{ answer }}</li>
+      }
+    </ul>
+  </li>
+  }
+</ul>
+
+@if (selectedQuestionIndex !== null) {
+<hr />
+<h4>Adicionar resposta à pergunta selecionada</h4>
+<input [(ngModel)]="newAnswer" placeholder="Nova resposta" />
+<button (click)="addAnswerToSelected()">Adicionar Resposta</button>
+}

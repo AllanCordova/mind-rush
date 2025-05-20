@@ -1,19 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
-
 :root {
-  --bg: #0f172a;
+  --bg: #000;
   --primary: #6366f1;
   --secondary: #f43f5e;
   --text: #e2e8f0;
   --detail: #14b8a6;
+
+  --font: "Rubik", sans-serif;
+
+  --fs-title: clamp(2rem, 5vw, 3rem);
+  --fs-subtitle: clamp(1.5rem, 4vw, 2rem);
+  --fs-text: clamp(1rem, 2.5vw, 1.2rem);
+  --fs-small: 0.9rem;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
 }
 
 body {
-  background-color: var(--bg);
+  font-family: var(--font);
+  color: var(--text);
+  background: linear-gradient(180deg, #000 0%, #16191f 100%);
+}
+.bg-app {
+  background-color: #030303 !important;
 }
 
-header {
-  background-color: #0e1d3b;
+/* Títulos */
+.title {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  color: var(--primary);
+}
+
+.subtitle {
+  font-size: var(--fs-subtitle);
+  font-weight: var(--fw-medium);
+  color: var(--detail);
+}
+
+/* Texto comum */
+.text {
+  font-size: var(--fs-text);
+  font-weight: var(--fw-regular);
+}
+
+/* Texto pequeno */
+.text-small {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  opacity: 0.8;
+}
+
+/* Botões */
+.btn-primary {
+  font-size: var(--fs-text);
+  font-weight: var(--fw-medium);
+  background-color: var(--primary);
+  color: var(--text);
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary);
+  color: #fff;
 }
 
 h1 {
@@ -25,11 +78,29 @@ h2 {
 }
 
 a {
-  color: var(--primary);
+  position: relative;
+  display: inline-block;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--text);
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: var(--secondary);
+  transition: width 0.3s ease;
 }
 
 a:hover {
-  color: var(--text);
-  text-decoration: underline;
+  color: var(--secondary);
+}
+
+a:hover::after {
+  width: 100%;
 }
