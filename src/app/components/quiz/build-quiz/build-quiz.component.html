@@ -1,0 +1,14 @@
+<h2>criar quiz</h2>
+
+<div>
+  <input [(ngModel)]="quiztitle" placeholder="Título do quiz" />
+  <input [(ngModel)]="quizDesc" placeholder="Descrição do quiz" />
+  <button (click)="saveQuiz()">Salvar Quiz</button>
+</div>
+
+@for (quiz of _service.listQuiz; track quiz.id) {
+{{ quiz.title }}
+<a [routerLink]="['/build-quiz', quiz.id, 'build-question']"
+  >Adicionar Perguntas</a
+>
+}

@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default class Question {
   private _id: string = uuidv4();
+  private _select: boolean = false;
   constructor(private _text: string, private _answers: string[] = []) {}
 
   public get id(): string {
@@ -14,6 +15,14 @@ export default class Question {
 
   public get answers(): string[] {
     return this._answers;
+  }
+
+  public set select(value: boolean) {
+    this._select = value;
+  }
+
+  public get select(): boolean {
+    return this._select;
   }
 
   public addAnswer(ans: string): void {

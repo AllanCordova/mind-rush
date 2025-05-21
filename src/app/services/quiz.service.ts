@@ -9,8 +9,9 @@ export class QuizService {
 
   constructor() {}
 
-  public makeQuiz(quiz: Quiz): void {
+  public makeQuiz(quiz: Quiz): string {
     this._listQuiz.push(quiz);
+    return quiz.id;
   }
 
   public get listQuiz(): Quiz[] {

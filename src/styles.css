@@ -1,6 +1,6 @@
 :root {
   --bg: #000;
-  --primary: #6366f1;
+  --primary: #4345c2;
   --secondary: #f43f5e;
   --text: #e2e8f0;
   --detail: #14b8a6;
@@ -17,13 +17,27 @@
   --fw-bold: 700;
 }
 
-body {
-  font-family: var(--font);
-  color: var(--text);
-  background: linear-gradient(180deg, #000 0%, #16191f 100%);
+body,
+html {
+  font-family: var(--font, "Rubik", sans-serif);
+  color: var(--text, #e2e8f0);
+  background: url("../public/background.png") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
 }
-.bg-app {
-  background-color: #030303 !important;
+
+body::before {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+.bg {
+  background: rgba(18, 0, 38, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Títulos */
@@ -57,7 +71,7 @@ body {
   font-size: var(--fs-text);
   font-weight: var(--fw-medium);
   background-color: var(--primary);
-  color: var(--text);
+  color: var(--white);
   border: none;
   padding: 0.6em 1.2em;
   border-radius: 8px;
@@ -65,7 +79,7 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: var(--secondary);
+  background-color: var(--detail);
   color: #fff;
 }
 
