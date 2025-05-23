@@ -18,8 +18,8 @@ export class QuizService {
     return this._listQuiz;
   }
 
-  public getQuizById(id: string): Quiz | undefined {
-    return this._listQuiz.find((q) => q.id === id);
+  public getQuizById(id: string): Quiz {
+    return this._listQuiz.find((q) => q.id === id) ?? this._listQuiz[0];
   }
 
   public deleteQuiz(id: string): void {

@@ -1,37 +1,109 @@
+/* ============================
+🌐 Variáveis Globais (root)
+============================ */
 :root {
+  /* 🎨 Cores */
   --bg: #000;
-  --primary: #4345c2;
+  --primary: #0c70c2;
   --secondary: #f43f5e;
   --text: #e2e8f0;
   --detail: #14b8a6;
+  --white: #ffffff;
 
-  --font: "Rubik", sans-serif;
+  /* 🔤 Fonte */
+  --font: "Press Start 2P", cursive;
+  --font-comum: "Rubik", sans-serif;
 
-  --fs-title: clamp(2rem, 5vw, 3rem);
-  --fs-subtitle: clamp(1.5rem, 4vw, 2rem);
-  --fs-text: clamp(1rem, 2.5vw, 1.2rem);
-  --fs-small: 0.9rem;
+  /* 🔠 Tamanhos de Fonte Responsivos */
+  --fs-pixel-xs: clamp(0.65rem, 1vw, 0.75rem);
+  --fs-pixel-sm: clamp(0.75rem, 1.5vw, 0.9rem);
+  --fs-pixel-md: clamp(1rem, 2.5vw, 1.2rem);
+  --fs-pixel-lg: clamp(1.25rem, 3vw, 1.5rem);
+  --fs-pixel-xl: clamp(1.5rem, 4vw, 2rem);
 
+  /* ⚖️ Peso das Fontes */
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-bold: 700;
 }
 
+/* ============================
+🔤 Utilitários de Fonte Pixelada
+============================ */
+.pixel-font {
+  font-family: var(--font);
+}
+
+.pixel-xs {
+  font-size: var(--fs-pixel-xs);
+}
+
+.pixel-sm {
+  font-size: var(--fs-pixel-sm);
+}
+
+.pixel-md {
+  font-size: var(--fs-pixel-md);
+}
+
+.pixel-lg {
+  font-size: var(--fs-pixel-lg);
+}
+
+.pixel-xl {
+  font-size: var(--fs-pixel-xl);
+}
+
+.font-regular {
+  font-weight: var(--fw-regular);
+}
+
+.font-medium {
+  font-weight: var(--fw-medium);
+}
+
+.font-bold {
+  font-weight: var(--fw-bold);
+}
+
+/* ============================
+📄 Fontes Légiveis
+============================ */
+
+.text {
+  color: var(--white);
+  font-family: var(--font-comum);
+}
+
+.title {
+  color: var(--secondary);
+  font-family: var(--font-comum);
+}
+
+/* ============================
+📄 Estilos Básicos
+============================ */
 body,
 html {
-  font-family: var(--font, "Rubik", sans-serif);
-  color: var(--text, #e2e8f0);
+  margin: 0;
+  padding: 0;
+  color: var(--text);
   background: url("../public/background.png") no-repeat center center fixed;
   background-size: cover;
   position: relative;
 }
 
 body::before {
+  content: "";
   position: fixed;
+  inset: 0;
   background: rgba(0, 0, 0, 0.6);
   z-index: -1;
 }
 
+/* ============================
+🧱 Utilitários de Layout
+============================ */
 .bg {
   background: rgba(18, 0, 38, 0.5);
   backdrop-filter: blur(6px);
@@ -40,35 +112,11 @@ body::before {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Títulos */
-.title {
-  font-size: var(--fs-title);
-  font-weight: var(--fw-bold);
-  color: var(--primary);
-}
-
-.subtitle {
-  font-size: var(--fs-subtitle);
-  font-weight: var(--fw-medium);
-  color: var(--detail);
-}
-
-/* Texto comum */
-.text {
-  font-size: var(--fs-text);
-  font-weight: var(--fw-regular);
-}
-
-/* Texto pequeno */
-.text-small {
-  font-size: var(--fs-small);
-  font-weight: var(--fw-regular);
-  opacity: 0.8;
-}
-
-/* Botões */
+/* ============================
+🔘 Botões
+============================ */
 .btn-primary {
-  font-size: var(--fs-text);
+  font-size: var(--fs-pixel-md);
   font-weight: var(--fw-medium);
   background-color: var(--primary);
   color: var(--white);
@@ -76,6 +124,7 @@ body::before {
   padding: 0.6em 1.2em;
   border-radius: 8px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -83,18 +132,31 @@ body::before {
   color: #fff;
 }
 
+/* ============================
+🧠 Tipografia
+============================ */
 h1 {
+  font-size: var(--fs-pixel-xl);
   color: var(--secondary);
 }
 
 h2 {
+  font-size: var(--fs-pixel-lg);
   color: var(--text);
 }
 
+p {
+  font-size: var(--fs-pixel-md);
+  line-height: 1.5;
+}
+
+/* ============================
+🔗 Links
+============================ */
 a {
   position: relative;
   display: inline-block;
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-size: var(--fs-pixel-sm);
   color: var(--text);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -117,4 +179,26 @@ a:hover {
 
 a:hover::after {
   width: 100%;
+}
+
+/* botões */
+
+.btn-pixel {
+  font-family: var(--font);
+  border-radius: 12px;
+  padding: 0.6rem 1.4rem;
+  font-size: var(--fs-pixel-sm);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary-pixel {
+  background-color: var(--primary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+}
+
+.btn-primary-pixel:hover {
+  background-color: var(--detail);
+  border-color: var(--detail);
+  color: #fff;
 }
