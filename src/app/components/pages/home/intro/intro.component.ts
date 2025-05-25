@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { TitleComponent } from '../title/title.component';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  imports: [RouterModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  selector: 'app-intro',
+  templateUrl: './intro.component.html',
+  styleUrls: ['./intro.component.css'],
+  imports: [TitleComponent, RouterModule],
   animations: [
-    trigger('fadeIn', [
+    trigger('fadeInTitle', [
       transition(':enter', [
-        style({ opacity: 0.2, transform: 'translateX(400px)' }),
+        style({ opacity: 0, transform: 'translateY(-200px)' }),
         animate(
-          '2s ease-out',
+          '1200ms ease-out',
           style({ opacity: 1, transform: 'translateY(0)' })
         ),
       ]),
     ]),
   ],
 })
-export class HeaderComponent {
+export class IntroComponent {
   scrollTo(id: string) {
     const element = document.getElementById(id);
     if (element) {

@@ -8,9 +8,17 @@
 
 .logo {
   color: var(--secondary);
+  text-decoration: none;
 }
 
 .logo:hover {
-  text-decoration: none;
   color: var(--secondary);
+}
+
+.offcanvas {
+  background-color: var(--bg); /* Fundo escuro combinando */
+}
+
+.offcanvas .nav-link {
+  font-size: 1.2rem;
 }

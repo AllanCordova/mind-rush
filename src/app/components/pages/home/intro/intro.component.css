@@ -1,0 +1,26 @@
+.pixel-button {
+  font-family: "Press Start 2P", cursive;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 2px 2px 0px #000;
+  transition: transform 0.2s ease;
+}
+
+.pixel-button:hover {
+  transform: scale(1.05);
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+img {
+  max-height: 500px !important;
+  object-fit: cover;
+}

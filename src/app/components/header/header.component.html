@@ -1,28 +1,92 @@
-<header class="p-2 bg" [@fadeIn]>
-  <div class="d-flex justify-content-around align-items-center">
-    <a class="logo pixel-font pixel-lg font-bold text-uppercase" routerLink="/"
+<header class="bg p-2 fixed-top shadow" [@fadeIn]>
+  <div
+    class="container-fluid d-flex justify-content-between align-items-center"
+  >
+    <!-- Logo -->
+    <a class="logo pixel-font pixel-md font-bold text-uppercase" routerLink="/"
       >mind rush</a
     >
 
-    <nav class="d-flex gap-4 align-items-center">
+    <!-- Botão do menu hamburguer -->
+    <button
+      class="navbar-toggler d-lg-none border-0"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#mobileMenu"
+      aria-controls="mobileMenu"
+      aria-label="Toggle navigation"
+    >
+      <i class="bi bi-list fs-1 text-light"></i>
+    </button>
+
+    <!-- Menu desktop -->
+    <nav class="d-none d-lg-flex gap-4 align-items-center">
       <a
-        class="pixel-md text font-medium"
+        class="pixel-md text font-medium nav-link"
         routerLink="/start"
         routerLinkActive="active"
         >Jogar</a
       >
       <a
-        class="pixel-md text font-medium"
+        class="pixel-md text font-medium nav-link"
         routerLink="/build-quiz"
         routerLinkActive="active"
         >Criar</a
       >
       <a
-        class="pixel-md text font-medium"
-        routerLink="/sobre"
+        class="pixel-md text font-medium nav-link"
+        (click)="scrollTo('howToPlay')"
         routerLinkActive="active"
         >Sobre</a
       >
     </nav>
+  </div>
+
+  <!-- Offcanvas (menu mobile) -->
+  <div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="mobileMenu"
+    aria-labelledby="mobileMenuLabel"
+  >
+    <div class="offcanvas-header">
+      <a
+        class="offcanvas-title pixel-font pixel-lg title"
+        id="mobileMenuLabel"
+        data-bs-dismiss="offcanvas"
+        routerLink=""
+      >
+        Home
+      </a>
+      <button
+        type="button"
+        class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body min-vh-100 d-flex flex-column gap-3">
+      <a
+        class="pixel-sm nav-link text-light"
+        routerLink="/start"
+        routerLinkActive="active"
+        data-bs-dismiss="offcanvas"
+        >Jogar</a
+      >
+      <a
+        class="pixel-sm nav-link text-light"
+        routerLink="/build-quiz"
+        routerLinkActive="active"
+        data-bs-dismiss="offcanvas"
+        >Criar</a
+      >
+      <a
+        class="pixel-sm nav-link text-light"
+        (click)="scrollTo('howToPlay')"
+        routerLinkActive="active"
+        data-bs-dismiss="offcanvas"
+        >Sobre</a
+      >
+    </div>
   </div>
 </header>

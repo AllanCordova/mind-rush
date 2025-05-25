@@ -5,34 +5,32 @@
       <h2 class="pixel-xl title text-center mb-4">Criar Questão</h2>
 
       @if (quiz) {
-      <p class="text-center font-comin pixel-sm text-light">
+      <p class="text-center title pixel-lg text-light">
         📘 Quiz: {{ quiz.title }}
       </p>
 
       <div class="mb-3">
-        <label class="pixel-md mb-2">Pergunta</label>
-        <input
-          type="text"
-          class="form-control font-comin form-control-lg border-secondary"
+        <label for="question" class="pixel-md mb-2">Pergunta</label>
+        <textarea
+          placeholder="Qual a capital do Brasil"
+          class="form-control form-control-lg border-secondary"
           [(ngModel)]="questionText"
-          placeholder="Digite a pergunta"
-        />
+          id="question"
+        ></textarea>
       </div>
 
       <div class="mb-3">
-        <label class="pixel-md mb-2">Alternativa</label>
+        <label for="answer" class="pixel-md mb-2">Alternativa</label>
         <div class="d-flex gap-2">
           <input
+            id="answer"
             type="text"
-            class="form-control font-comin border-secondary"
+            class="form-control border-secondary"
             [(ngModel)]="answerText"
             placeholder="Ex: Brasília"
           />
-          <button
-            class="btn btn-secondary btn-sm pixel-font"
-            (click)="addAnswer()"
-          >
-            ➕
+          <button class="btn btn-primary fs-5 btn-sm" (click)="addAnswer()">
+            <i class="bi bi-plus-square mt-0"></i>
           </button>
         </div>
       </div>
@@ -54,7 +52,7 @@
               }"
               (click)="markCorrect($index)"
             >
-              ✔
+              <i class="bi bi-plus-circle"></i>
             </button>
           </li>
           }
@@ -84,30 +82,10 @@
         @for (q of quiz.questions; track q.id) {
         <li class="list-group-item bg-transparent text-light font-comin">
           <div class="d-flex justify-content-between align-items-center">
-            {{ q.text }}
-            <button class="btn btn-sm text-light" (click)="toggleAnswers(q.id)">
-              <i
-                [ngClass]="{
-                  'bi bi-arrow-up-circle-fill': expandedQuestions.includes(
-                    q.id
-                  ),
-                  'bi bi-arrow-down-circle-fill': !expandedQuestions.includes(
-                    q.id
-                  )
-                }"
-              ></i>
-            </button>
+            <span class="text pixel-lg">Pergunta: {{ q.text }}</span>
           </div>
-
-          @if (expandedQuestions.includes(q.id)) {
-          <ul class="mt-2 ps-3">
-            @for (ans of q.answers; track $index) {
-            <li class="text-light small">- {{ ans }}</li>
-            }
-          </ul>
-          }
+          <span class="text pixel-md">Alternativas: {{ q.answers }}</span>
         </li>
-
         }
       </ul>
       } @else {

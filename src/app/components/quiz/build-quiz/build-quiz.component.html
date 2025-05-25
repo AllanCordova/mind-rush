@@ -49,12 +49,12 @@
             class="list-group-item bg-transparent text-light d-flex justify-content-between align-items-center pixel-md border-secondary"
           >
             <span class="pixel-font">{{ quiz.title }}</span>
-            <a
+            <button
               [routerLink]="['/build-quiz', quiz.id, 'build-question']"
-              class="btn btn-outline-secondary btn-lg pixel-xs"
+              class="btn btn-outline-primary btn-lg pixel-xs"
             >
-              ➕ Adicionar Perguntas
-            </a>
+              <i class="bi bi-plus-square"></i> Adicionar Perguntas
+            </button>
           </li>
           }
         </ul>

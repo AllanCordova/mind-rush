@@ -20,21 +20,11 @@ export class BuildQuestionComponent implements OnInit {
   answerText: string = '';
   tempAnswers: string[] = [];
   correctAnswerIndex: number | null = null;
-  expandedQuestions: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private quizService: QuizService
   ) {}
-
-  toggleAnswers(questionId: string): void {
-    const index = this.expandedQuestions.indexOf(questionId);
-    if (index >= 0) {
-      this.expandedQuestions.splice(index, 1);
-    } else {
-      this.expandedQuestions.push(questionId);
-    }
-  }
 
   markCorrect(index: number) {
     this.correctAnswerIndex = index;
