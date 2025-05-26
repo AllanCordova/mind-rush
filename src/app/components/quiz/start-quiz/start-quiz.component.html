@@ -1,0 +1,7 @@
+@for (question of quiz.questions; track $index) {
+{{ quiz.title }}
+{{ $index }}
+{{ question.text }}
+@for (answer of question.answers; track $index) {
+<button (click)="respostUser(answer, question)">{{ answer }}</button>
+} }
