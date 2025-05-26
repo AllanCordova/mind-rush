@@ -1,8 +1,5 @@
 .book-card {
-  background: rgba(0, 0, 0, 0.85);
-  border: 4px var(--secondary);
-  border-radius: 16px;
-  padding: 2rem;
+  border: 1px var(--detail) solid;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -11,22 +8,4 @@
 
 .book-card:hover {
   transform: scale(1.02);
-}
-
-.book-edge {
-  position: absolute;
-  right: -10px;
-  top: 10px;
-  bottom: 10px;
-  width: 14px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--primary),
-    var(--primary) 2px,
-    #000 2px,
-    #000 4px
-  );
-  border-radius: 4px;
-  z-index: 0;
-  box-shadow: inset -2px 0px 4px rgba(0, 0, 0, 0.4);
 }

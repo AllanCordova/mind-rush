@@ -1,7 +1,60 @@
-@for (question of quiz.questions; track $index) {
-{{ quiz.title }}
-{{ $index }}
-{{ question.text }}
-@for (answer of question.answers; track $index) {
-<button (click)="respostUser(answer, question)">{{ answer }}</button>
-} }
+<div
+  class="container min-vh-100 d-flex align-items-center justify-content-center"
+>
+  <div class="row justify-content-center w-100">
+    <div class="col-12">
+      <div class="card bg text-center text-white shadow-lg p-4 rounded-4">
+        <h2 class="pixel-lg pixel-font title mb-3">
+          Pergunta {{ indexQuestion + 1 }}
+        </h2>
+
+        <span class="h2 pixel-font pixel-sm d-block mb-4">
+          {{ question[indexQuestion].text }}
+        </span>
+
+        <div class="d-grid gap-3 mb-4">
+          @for (answer of question[indexQuestion].answers; track $index) {
+          <button
+            class="btn pixel-font w-100"
+            (click)="markAnswer(answer)"
+            [ngClass]="{
+              'btn-success': answer.select === true,
+              'btn-outline-secondary': answer.select === false
+            }"
+          >
+            {{ answer.answer }}
+          </button>
+          }
+        </div>
+
+        <div class="row g-2">
+          @if (indexQuestion > 0) {
+          <div class="col">
+            <button
+              class="btn btn-outline-light w-100"
+              (click)="prevQuestion()"
+            >
+              <i class="bi bi-arrow-left me-2"></i>
+            </button>
+          </div>
+          } @if (indexQuestion === question.length - 1) {
+          <div class="col">
+            <button (click)="submitQuiz()" class="btn btn-outline-light w-100">
+              Enviar
+            </button>
+          </div>
+          } @else {
+          <div class="col">
+            <button
+              class="btn btn-outline-light w-100"
+              (click)="proxQuestion()"
+            >
+              <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

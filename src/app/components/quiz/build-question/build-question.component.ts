@@ -4,7 +4,7 @@ import { NgClass } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { QuizService } from '../../../services/quiz.service';
 import Quiz from '../../../model/Quiz';
-import Question from '../../../model/Question';
+import Question, { AnswerType } from '../../../model/Question';
 
 @Component({
   selector: 'app-build-question',
@@ -18,7 +18,7 @@ export class BuildQuestionComponent implements OnInit {
 
   questionText: string = '';
   answerText: string = '';
-  tempAnswers: string[] = [];
+  tempAnswers: AnswerType[] = [];
   correctAnswerIndex: number | null = null;
 
   constructor(
@@ -37,7 +37,7 @@ export class BuildQuestionComponent implements OnInit {
 
   addAnswer(): void {
     if (this.answerText.trim()) {
-      this.tempAnswers.push(this.answerText.trim());
+      this.tempAnswers.push({ answer: this.answerText.trim(), select: false });
       this.answerText = '';
     }
   }

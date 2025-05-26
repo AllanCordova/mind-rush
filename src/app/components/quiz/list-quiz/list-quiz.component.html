@@ -1,17 +1,25 @@
-<div class="container text-center py-5">
-  <div class="row g-4 justify-content-center" data-aos="fade-up">
+@if (quizez.length > 0) {
+<div class="container text-center mt-5 bg rounded">
+  <div class="row gap-2">
+    <div class="col-12">
+      <h2 class="pixel-font pixel-lg title">Quizes!</h2>
+    </div>
+    <div class="col-12">
+      <span class="pixel-font pixel-md">Escolha um Quiz e divirta-se!</span>
+    </div>
+  </div>
+  <div class="row gap-2 justify-content-center mt-4" data-aos="fade-up">
     @for (quiz of quizez; track quiz.id) {
-    <div class="col-12 col-md-8 col-lg-6">
-      <div class="book-card position-relative p-4 shadow-lg">
-        <div class="book-edge"></div>
-
+    <div class="col-12 col-md-5 col-lg-3 book-card rounded shadow">
+      <div class="p-4">
         <!-- Título -->
-        <h2 class="pixel-font pixel-lg title mb-3">
+        <h2 class="pixel-font pixel-md title mb-3">
           {{ quiz.title }}
         </h2>
 
         <!-- Descrição -->
         <p class="pixel-font pixel-sm text mb-4">
+          descrição:
           {{ quiz.desc }}
         </p>
 
@@ -27,3 +35,4 @@
     }
   </div>
 </div>
+}

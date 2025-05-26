@@ -1,11 +1,16 @@
 import { v4 as uuidv4 } from 'uuid';
 
+export interface AnswerType {
+  answer: string;
+  select: boolean;
+}
+
 export default class Question {
   private _id: string = uuidv4();
   private _select: boolean = false;
   private _correctAnswerIndex: number = 0;
 
-  constructor(private _text: string, private _answers: string[] = []) {}
+  constructor(private _text: string, private _answers: AnswerType[] = []) {}
 
   public get id(): string {
     return this._id;
@@ -15,7 +20,7 @@ export default class Question {
     return this._text;
   }
 
-  public get answers(): string[] {
+  public get answers(): AnswerType[] {
     return this._answers;
   }
 
@@ -35,7 +40,7 @@ export default class Question {
     this._correctAnswerIndex = index;
   }
 
-  public addAnswer(ans: string): void {
-    this._answers.push(ans);
+  public addAnswer(ans: string, select: boolean = false): void {
+    this._answers.push({ answer: ans, select: select });
   }
 }
