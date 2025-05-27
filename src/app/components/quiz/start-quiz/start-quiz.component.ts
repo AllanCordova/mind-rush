@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import Quiz from '../../../model/Quiz';
 import Question, { AnswerType } from '../../../model/Question';
 import { NgClass } from '@angular/common';
+import { ImgServiceService } from '../../../services/img-service.service';
 
 @Component({
   selector: 'app-start-quiz',
@@ -17,16 +18,19 @@ export class StartQuizComponent implements OnInit {
   private _answerUser: string[] = [];
   private _indexQuestion: number = 0;
   public answerSelect: boolean = false;
+  public imgSorteada: string = '';
 
   public constructor(
     private _quizService: QuizService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _imgService: ImgServiceService
   ) {}
 
   public ngOnInit(): void {
     const id = this._route.snapshot.paramMap.get('id') || '';
     this._quiz = this._quizService.getQuizById(id);
     this._question = this.quiz.questions;
+    this.imgSorteada = this._imgService.getRandomImg();
   }
 
   public get quiz(): Quiz {
@@ -45,11 +49,13 @@ export class StartQuizComponent implements OnInit {
 
   public proxQuestion(): void {
     if (this.indexQuestion < this.question.length - 1) {
+      this.imgSorteada = this._imgService.getRandomImg();
       this._indexQuestion++;
     }
   }
 
   public prevQuestion(): void {
+    this.imgSorteada = this._imgService.getRandomImg();
     this._indexQuestion--;
   }
 

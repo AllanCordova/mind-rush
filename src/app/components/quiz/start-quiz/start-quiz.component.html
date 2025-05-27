@@ -2,57 +2,71 @@
   class="container min-vh-100 d-flex align-items-center justify-content-center"
 >
   <div class="row justify-content-center w-100">
-    <div class="col-12">
-      <div class="card bg text-center text-white shadow-lg p-4 rounded-4">
-        <h2 class="pixel-lg pixel-font title mb-3">
-          Pergunta {{ indexQuestion + 1 }}
-        </h2>
+    <div class="col-12 col-lg-6">
+      <div
+        class="card bg text-center text-white shadow-lg rounded-4 overflow-hidden"
+      >
+        <!-- Imagem como topo do card -->
+        <img
+          [src]="imgSorteada"
+          class="card-img-top img-fluid object-fit-cover"
+          alt="Imagem de capa"
+        />
 
-        <span class="h2 pixel-font pixel-sm d-block mb-4">
-          {{ question[indexQuestion].text }}
-        </span>
+        <div class="p-4">
+          <h2 class="pixel-lg pixel-font title mb-3">
+            Quest {{ indexQuestion + 1 }}
+          </h2>
 
-        <div class="d-grid gap-3 mb-4">
-          @for (answer of question[indexQuestion].answers; track $index) {
-          <button
-            class="btn pixel-font w-100"
-            (click)="markAnswer(answer)"
-            [ngClass]="{
-              'btn-success': answer.select === true,
-              'btn-outline-secondary': answer.select === false
-            }"
-          >
-            {{ answer.answer }}
-          </button>
-          }
-        </div>
+          <span class="pixel-font pixel-sm d-block mb-4">
+            {{ question[indexQuestion].text }}
+          </span>
 
-        <div class="row g-2">
-          @if (indexQuestion > 0) {
-          <div class="col">
+          <div class="d-grid gap-3 mb-4">
+            @for (answer of question[indexQuestion].answers; track $index) {
             <button
-              class="btn btn-outline-light w-100"
-              (click)="prevQuestion()"
+              class="btn pixel-font w-100"
+              (click)="markAnswer(answer)"
+              [ngClass]="{
+                'btn-success': answer.select === true,
+                'btn-outline-secondary': answer.select === false
+              }"
             >
-              <i class="bi bi-arrow-left me-2"></i>
+              {{ answer.answer }}
             </button>
+            }
           </div>
-          } @if (indexQuestion === question.length - 1) {
-          <div class="col">
-            <button (click)="submitQuiz()" class="btn btn-outline-light w-100">
-              Enviar
-            </button>
+
+          <div class="row g-2">
+            @if (indexQuestion > 0) {
+            <div class="col">
+              <button
+                class="btn btn-outline-light w-100"
+                (click)="prevQuestion()"
+              >
+                <i class="bi bi-arrow-left me-2"></i>
+              </button>
+            </div>
+            } @if (indexQuestion === question.length - 1) {
+            <div class="col">
+              <button
+                (click)="submitQuiz()"
+                class="btn btn-outline-light w-100"
+              >
+                Enviar
+              </button>
+            </div>
+            } @else {
+            <div class="col">
+              <button
+                class="btn btn-outline-light w-100"
+                (click)="proxQuestion()"
+              >
+                <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+            }
           </div>
-          } @else {
-          <div class="col">
-            <button
-              class="btn btn-outline-light w-100"
-              (click)="proxQuestion()"
-            >
-              <i class="bi bi-arrow-right ms-2"></i>
-            </button>
-          </div>
-          }
         </div>
       </div>
     </div>

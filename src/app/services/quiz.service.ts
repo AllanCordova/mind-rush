@@ -11,14 +11,14 @@ export class QuizService {
   private _listQuiz: Quiz[];
 
   constructor() {
-    this._question = new Question('Quanto e 10 + 20 ?', [
+    this._question = new Question('how many is 200 / 10', [
       { answer: '30', select: false },
       { answer: '20', select: false },
       { answer: '10', select: false },
     ]);
     this._question.correctAnswerIndex = 0;
 
-    this._quizDefault = new Quiz('Calculo', 'Calculos Matemáticos', [
+    this._quizDefault = new Quiz('mathematical calculations', 'easy', [
       this._question,
     ]);
     this._listQuiz = [this._quizDefault];

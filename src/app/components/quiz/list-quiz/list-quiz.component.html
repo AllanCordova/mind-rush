@@ -1,38 +1,61 @@
-@if (quizez.length > 0) {
 <div class="container text-center mt-5 bg rounded">
-  <div class="row gap-2">
-    <div class="col-12">
-      <h2 class="pixel-font pixel-lg title">Quizes!</h2>
+  <div class="row">
+    <div class="col-12 mb-3">
+      <h2 class="pixel-font pixel-lg title">Quizzes!</h2>
+      <span class="pixel-font pixel-md">Escolha um quiz e divirta-se!</span>
     </div>
-    <div class="col-12">
-      <span class="pixel-font pixel-md">Escolha um Quiz e divirta-se!</span>
-    </div>
-  </div>
-  <div class="row gap-2 justify-content-center mt-4" data-aos="fade-up">
-    @for (quiz of quizez; track quiz.id) {
-    <div class="col-12 col-md-5 col-lg-3 book-card rounded shadow">
-      <div class="p-4">
-        <!-- Título -->
-        <h2 class="pixel-font pixel-md title mb-3">
-          {{ quiz.title }}
-        </h2>
 
-        <!-- Descrição -->
-        <p class="pixel-font pixel-sm text mb-4">
-          descrição:
-          {{ quiz.desc }}
-        </p>
-
-        <!-- Botão Jogar -->
+    <!-- Botão de recarregar -->
+    <div class="col-12 mb-3">
+      <div class="d-flex justify-content-center">
         <button
-          class="btn btn-pixel btn-primary-pixel"
-          [routerLink]="['/list-quiz', quiz.id, 'start-quiz']"
+          class="btn btn-outline-light d-flex align-items-center gap-2 detail"
+          (click)="loadQuizzes()"
+          [disabled]="isLoading"
         >
-          📖 Jogar
+          <i class="bi bi-arrow-clockwise fs-3"></i>
+          <span class="pixel-font pixel-md">Buscar mais!</span>
         </button>
       </div>
+    </div>
+
+    <!-- Estado: Carregando -->
+    @if (isLoading) {
+    <div class="col-12">
+      <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Carregando...</span>
+      </div>
+      <p class="pixel-font pixel-sm mt-2">Buscando novos quizes...</p>
+    </div>
+    }
+
+    <!-- Estado: Erro -->
+    @if (hasError) {
+    <div class="col-12 text-danger">
+      <span class="pixel-font pixel-sm"
+        >Erro ao carregar quizzes. Tente novamente!</span
+      >
+    </div>
+    }
+
+    <!-- Estado: Quizzes carregados -->
+    @if (quizez.length > 0) {
+    <div class="row gap-3 justify-content-center mt-4" data-aos="fade-up">
+      @for (quiz of quizez; track quiz.id) {
+      <div class="col-12 col-lg-6">
+        <div class="p-4 book-card rounded shadow">
+          <h2 class="pixel-font pixel-md title">{{ quiz.title }}</h2>
+          <p class="pixel-font pixel-sm text mb-4">{{ quiz.desc }}</p>
+          <button
+            class="btn btn-pixel btn-primary-pixel"
+            [routerLink]="['/list-quiz', quiz.id, 'start-quiz']"
+          >
+            📖 Jogar
+          </button>
+        </div>
+      </div>
+      }
     </div>
     }
   </div>
 </div>
-}
