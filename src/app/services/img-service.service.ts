@@ -6,6 +6,10 @@ import { Injectable } from '@angular/core';
 export class ImgServiceService {
   private readonly _filenames = [
     'https://res.cloudinary.com/dbd51yqaz/image/upload/v1748300571/start_u00att.png',
+    'https://res.cloudinary.com/dholbtxkp/image/upload/v1748096799/about_hfijlc.png',
+    'https://res.cloudinary.com/dholbtxkp/image/upload/v1748179476/card_ooln7b.jpg',
+    'https://res.cloudinary.com/dholbtxkp/image/upload/v1748180498/intro-mobile_ahogi5.jpg',
+    'https://res.cloudinary.com/dholbtxkp/image/upload/v1748096701/start_mngegc.png',
     'https://res.cloudinary.com/dbd51yqaz/image/upload/v1748300582/startA_ruwx18.png',
     'https://res.cloudinary.com/dbd51yqaz/image/upload/v1748300608/startB_mquueo.png',
     'https://res.cloudinary.com/dbd51yqaz/image/upload/v1748300618/StartG_kulxru.png',
