@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../../services/quiz.service';
-import { ActivatedRoute } from '@angular/router';
+import { ImgServiceService } from '../../../services/img-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import Quiz from '../../../model/Quiz';
 import Question, { AnswerType } from '../../../model/Question';
 import { NgClass } from '@angular/common';
-import { ImgServiceService } from '../../../services/img-service.service';
 
 @Component({
   selector: 'app-start-quiz',
@@ -17,20 +17,23 @@ export class StartQuizComponent implements OnInit {
   private _question!: Question[];
   private _answerUser: string[] = [];
   private _indexQuestion: number = 0;
+  private _id: string = '';
   public answerSelect: boolean = false;
   public imgSorteada: string = '';
 
   public constructor(
     private _quizService: QuizService,
     private _route: ActivatedRoute,
+    private _routerNav: Router,
     private _imgService: ImgServiceService
   ) {}
 
   public ngOnInit(): void {
-    const id = this._route.snapshot.paramMap.get('id') || '';
-    this._quiz = this._quizService.getQuizById(id);
+    this._id = this._route.snapshot.paramMap.get('id') || '';
+    this._quiz = this._quizService.getQuizById(this._id);
     this._question = this.quiz.questions;
     this.imgSorteada = this._imgService.getRandomImg();
+    this.resetAnswer();
   }
 
   public get quiz(): Quiz {
@@ -41,6 +44,13 @@ export class StartQuizComponent implements OnInit {
     const answers = this.question[this.indexQuestion].answers;
     answers.map((ans) => (ans.select = false));
     answer.select = true;
+  }
+
+  public resetAnswer(): void {
+    for (let i: number = 0; i < this.question.length; i++) {
+      const answers = this.question[i].answers;
+      answers.map((ans) => (ans.select = false));
+    }
   }
 
   public get question(): Question[] {
@@ -60,6 +70,17 @@ export class StartQuizComponent implements OnInit {
   }
 
   public submitQuiz(): void {
+    this._quiz.hits = 0;
+    this._quiz.total = this.question.length;
+
+    this.registerAnswersUser();
+
+    this.comparingAnswers();
+
+    this._routerNav.navigate(['/start-quiz/' + this._id + '/performance-quiz']);
+  }
+
+  private registerAnswersUser(): void {
     const answers = this._question.map((quest) => quest.answers);
     for (let i: number = 0; i < answers.length; i++) {
       for (let j: number = 0; j < answers[i].length; j++) {
@@ -68,7 +89,18 @@ export class StartQuizComponent implements OnInit {
         }
       }
     }
-    console.log(this._answerUser);
+  }
+
+  private comparingAnswers(): void {
+    for (let i: number = 0; i < this.question.length; i++) {
+      const correctAnswerIndex: number = this.question[i].correctAnswerIndex;
+      const correctAnswer: string =
+        this.question[i].answers[correctAnswerIndex].answer;
+
+      if (correctAnswer === this._answerUser[i]) {
+        this._quiz.hits += 1;
+      }
+    }
   }
 
   public get indexQuestion(): number {

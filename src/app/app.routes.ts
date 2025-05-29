@@ -4,6 +4,7 @@ import { BuildQuestionComponent } from './components/quiz/build-question/build-q
 import { HomeComponent } from './components/pages/home/home.component';
 import { ListQuizComponent } from './components/quiz/list-quiz/list-quiz.component';
 import { StartQuizComponent } from './components/quiz/start-quiz/start-quiz.component';
+import { PerformanceQuizComponent } from './components/quiz/performance-quiz/performance-quiz.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,4 +16,8 @@ export const routes: Routes = [
   },
   { path: 'home/list-quiz', component: ListQuizComponent },
   { path: 'list-quiz/:id/start-quiz', component: StartQuizComponent },
+  {
+    path: 'start-quiz/:id/performance-quiz',
+    component: PerformanceQuizComponent,
+  },
 ];

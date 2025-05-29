@@ -22,7 +22,6 @@ export class ListQuizComponent {
     private _quizService: QuizService
   ) {
     this.quizez = _quizService.listQuiz;
-    this.loadQuizzes();
   }
 
   public loadQuizzes(qty: number = 1): void {

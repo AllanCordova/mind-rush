@@ -6,20 +6,27 @@ import Question from '../model/Question';
   providedIn: 'root',
 })
 export class QuizService {
-  private _question: Question;
   private _quizDefault: Quiz;
   private _listQuiz: Quiz[];
 
   constructor() {
-    this._question = new Question('how many is 200 / 10', [
+    const questA = new Question('how many is 200 / 10', [
       { answer: '30', select: false },
       { answer: '20', select: false },
       { answer: '10', select: false },
     ]);
-    this._question.correctAnswerIndex = 0;
+    questA.correctAnswerIndex = 1;
+
+    const questB = new Question('how many is 40 + 50', [
+      { answer: '22', select: false },
+      { answer: '56', select: false },
+      { answer: '90', select: false },
+    ]);
+    questB.correctAnswerIndex = 2;
 
     this._quizDefault = new Quiz('mathematical calculations', 'easy', [
-      this._question,
+      questA,
+      questB,
     ]);
     this._listQuiz = [this._quizDefault];
   }

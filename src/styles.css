@@ -84,6 +84,10 @@
   color: var(--detail);
 }
 
+.primary {
+  color: var(--primary);
+}
+
 /* ============================
 📄 Estilos Básicos
 ============================ */
