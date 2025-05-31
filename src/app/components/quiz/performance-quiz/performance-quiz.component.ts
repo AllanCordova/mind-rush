@@ -15,7 +15,8 @@ export class PerformanceQuizComponent implements OnInit {
   public pathImg: string = '';
   public hits: number = 0;
   public hitsCent: number = 0;
-  public total: number = 0;
+  public points: number = 0;
+  public totalQuest: number = 0;
 
   public constructor(
     private _quizService: QuizService,
@@ -29,8 +30,9 @@ export class PerformanceQuizComponent implements OnInit {
     const id = this._route.snapshot.paramMap.get('id') || '';
     this._quiz = this._quizService.getQuizById(id);
 
-    this.total = this._quiz.total;
+    this.totalQuest = this._quiz.total;
     this.hits = this._quiz.hits;
-    this.hitsCent = (this.hits / this.total) * 100;
+    this.hitsCent = (this.hits / this.totalQuest) * 100;
+    this.points = this.hits * 100;
   }
 }

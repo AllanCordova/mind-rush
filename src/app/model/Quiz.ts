@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default class Quiz {
   private _id: string = uuidv4();
   private _hits: number = 0;
-  private _total: number = 0;
+  private _totalQuest: number = 0;
 
   constructor(
     private _title: string,
@@ -25,11 +25,11 @@ export default class Quiz {
   }
 
   public get total(): number {
-    return this._total;
+    return this._totalQuest;
   }
 
   public set total(value: number) {
-    this._total = value;
+    this._totalQuest = value;
   }
 
   public get title(): string {

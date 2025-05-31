@@ -1,7 +1,7 @@
 <section class="p-4 rounded-4 container bg mt-5 text-center">
   <div class="row g-4">
     <!-- 📘 Livro Esquerdo - Criar Quiz -->
-    <div class="col-md-6">
+    <div class="col-12 col-md-6">
       <div class="bg-glass rounded-4 p-4 shadow-lg">
         <h2 class="pixel-xl title text-center mb-4">📘 Criar Quiz</h2>
 
@@ -39,22 +39,30 @@
     </div>
 
     <!-- 📙 Livro Direito - Quizzes Criados -->
-    <div class="col-md-6">
+    <div class="col-12 col-md-6">
       <div class="bg-glass rounded-4 p-4 h-100 shadow-lg">
         <h3 class="pixel-xl title text-center mb-4">📙 Quizzes Criados</h3>
 
         <ul class="list-group list-group-flush">
           @for (quiz of _service.listQuiz; track quiz.id) {
           <li
-            class="list-group-item bg-transparent text-light d-flex justify-content-between align-items-center pixel-md border-secondary"
+            class="list-group-item bg-transparent text-light d-flex gap-3 flex-column justify-content-between align-items-center pixel-md border-secondary"
           >
             <span class="pixel-font">{{ quiz.title }}</span>
-            <button
-              [routerLink]="['/build-quiz', quiz.id, 'build-question']"
-              class="btn btn-outline-primary btn-lg pixel-xs"
-            >
-              <i class="bi bi-plus-square fs-1"></i>
-            </button>
+            <div class="d-flex gap-2">
+              <button
+                [routerLink]="['/build-quiz', quiz.id, 'build-question']"
+                class="btn-plus btn-icon rounded"
+              >
+                <i class="bi bi-plus-square fs-3"></i>
+              </button>
+              <button
+                (click)="_service.deleteQuiz(quiz.id)"
+                class="btn-trash btn-icon rounded"
+              >
+                <i class="bi bi-trash fs-3"></i>
+              </button>
+            </div>
           </li>
           }
         </ul>

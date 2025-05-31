@@ -10,21 +10,21 @@ export class QuizService {
   private _listQuiz: Quiz[];
 
   constructor() {
-    const questA = new Question('how many is 200 / 10', [
+    const questA = new Question('Qual o resultado da divisã: 200 / 10', [
       { answer: '30', select: false },
       { answer: '20', select: false },
       { answer: '10', select: false },
     ]);
     questA.correctAnswerIndex = 1;
 
-    const questB = new Question('how many is 40 + 50', [
+    const questB = new Question('quanto é 40 + 50', [
       { answer: '22', select: false },
       { answer: '56', select: false },
       { answer: '90', select: false },
     ]);
     questB.correctAnswerIndex = 2;
 
-    this._quizDefault = new Quiz('mathematical calculations', 'easy', [
+    this._quizDefault = new Quiz('Calculos Matemáticos', 'Básico', [
       questA,
       questB,
     ]);

@@ -7,10 +7,14 @@
       <img class="img-fluid rounded" [src]="pathImg" />
     </div>
     <div class="col-12">
+      <span class="pixel-font pixel-md">
+        Pontuação <strong class="primary">{{ points }}</strong> pts
+      </span>
+    </div>
+    <div class="col-12">
       <span class="pixel-font pixel-md"
-        >Parece que você acertou
-        <strong class="detail">{{ hits }}</strong> questões de
-        <strong class="primary">{{ total }}</strong></span
+        >acertos <strong class="detail">{{ hits }}</strong> de
+        <strong class="primary">{{ totalQuest }}</strong></span
       >
     </div>
     <div class="col-12">

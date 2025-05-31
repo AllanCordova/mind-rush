@@ -102,14 +102,6 @@ html {
   transition: background-size 0.3s ease, background-position 0.3s ease;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: -1;
-}
-
 * {
   scroll-behavior: smooth;
   transition: all 0.3s ease-in-out;
@@ -195,7 +187,9 @@ a:hover::after {
   width: 100%;
 }
 
-/* botões */
+/* ============================
+Botões
+============================ */
 
 .btn-pixel {
   font-family: var(--font);
@@ -217,13 +211,19 @@ a:hover::after {
   color: #fff;
 }
 
-/* animções */
+/* ============================
+Animations
+============================ */
 
 [data-aos] {
   opacity: 0;
   transition-property: transform, opacity;
   transition-timing-function: ease-out;
 }
+
+/* ============================
+  Barra do Navegador
+============================ */
 
 ::-webkit-scrollbar {
   width: 12px;
