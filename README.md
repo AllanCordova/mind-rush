@@ -37,10 +37,10 @@ https://www.figma.com/design/6Jlhk8OaKa160eykHUpwbB/mind-rush?node-id=2-3&t=ohac
 - [x] ID16: O aluno criou uma estrutura de navegação aninhada para representar hierarquias de conteúdo.
 - [ ] ID17: O aluno aplicou guardas de rotas para controlar o acesso a rotas específicas da aplicação, assegurando que somente usuários autorizados possam acessar determinadas partes da interface.
 #### RA6 - Realizar requisições assíncronas para serviços web, compreendendo os protocolos e formatos de troca de dados, tratando respostas e erros.
-- [ ] ID18: O aluno fez requisições assíncronas a uma API pública, compreendendo os protocolos HTTP e formatos de dados para no mínimo a operação GET.
+- [x] ID18: O aluno fez requisições assíncronas a uma API pública, compreendendo os protocolos HTTP e formatos de dados para no mínimo a operação GET.
 - [ ] ID19: O aluno fez requisições assíncronas a uma API simulada, compreendendo os protocolos HTTP e formatos de dados para as operações GET, POST, PUT, PATCH e DELETE.
-- [ ] ID20: O aluno tratou respostas de sucesso e erros das requisições assíncronas de forma apropriada.
-- [ ] ID21: O aluno aplicou validações de entrada nos campos do formulário, utilizando técnicas como expressões regulares (REGEX), e apresentou mensagens de erro claras e informativas para auxiliar os usuários a corrigir entradas incorretas.
+- [x] ID20: O aluno tratou respostas de sucesso e erros das requisições assíncronas de forma apropriada.
+- [] ID21: O aluno aplicou validações de entrada nos campos do formulário, utilizando técnicas como expressões regulares (REGEX), e apresentou mensagens de erro claras e informativas para auxiliar os usuários a corrigir entradas incorretas.
 - [ ] ID22: O aluno desabilitou adequadamente o botão de submit enquanto o formulário continha campos inválidos, promovendo uma experiência de usuário mais intuitiva e evitando a submissão de dados incorretos.
 - [ ] ID23: O aluno demonstrou a capacidade de utilizar Promises para tratar respostas assíncronas.
 - [ ] ID24: O aluno demonstrou a capacidade de utilizar Observables para tratar respostas assíncronas.
