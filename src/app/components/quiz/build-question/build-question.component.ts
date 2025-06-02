@@ -13,32 +13,38 @@ import Question, { AnswerType } from '../../../model/Question';
   styleUrls: ['./build-question.component.css'],
 })
 export class BuildQuestionComponent implements OnInit {
-  quizId: string = '';
-  quiz!: Quiz;
+  private quizId: string = '';
+  public quiz!: Quiz;
 
-  questionText: string = '';
-  answerText: string = '';
-  tempAnswers: AnswerType[] = [];
-  correctAnswerIndex: number | null = null;
+  public questionText: string = '';
+  public answerText: string = '';
+
+  public tempAnswers: AnswerType[] = [];
+  public correctAnswerIndex: number | null = null;
+
+  public error: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private quizService: QuizService
   ) {}
 
-  markCorrect(index: number) {
-    this.correctAnswerIndex = index;
-  }
-
   ngOnInit(): void {
     this.quizId = this.route.snapshot.paramMap.get('id') || '';
     this.quiz = this.quizService.getQuizById(this.quizId);
   }
 
+  markCorrect(index: number) {
+    this.correctAnswerIndex = index;
+  }
+
   addAnswer(): void {
     if (this.answerText.trim()) {
+      this.error = false;
       this.tempAnswers.push({ answer: this.answerText.trim(), select: false });
       this.answerText = '';
+    } else {
+      this.error = true;
     }
   }
 
@@ -48,11 +54,10 @@ export class BuildQuestionComponent implements OnInit {
       this.tempAnswers.length < 2 ||
       this.correctAnswerIndex === null
     ) {
-      alert(
-        'Complete a pergunta com pelo menos duas alternativas e selecione a correta.'
-      );
+      this.error = true;
       return;
     }
+    this.error = false;
 
     const question = new Question(this.questionText, this.tempAnswers);
     question.correctAnswerIndex = this.correctAnswerIndex;

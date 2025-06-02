@@ -12,6 +12,14 @@ export default class Quiz {
     private _questions: Question[] = []
   ) {}
 
+  public removeQuest(id: string): void {
+    this._questions = this._questions.filter((quest) => quest.id !== id);
+  }
+
+  public addQuestion(q: Question): void {
+    this._questions.push(q);
+  }
+
   public get id(): string {
     return this._id;
   }
@@ -42,9 +50,5 @@ export default class Quiz {
 
   public get questions(): Question[] {
     return this._questions;
-  }
-
-  public addQuestion(q: Question): void {
-    this._questions.push(q);
   }
 }

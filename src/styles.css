@@ -73,7 +73,6 @@
 
 .text {
   color: var(--white);
-  font-family: var(--font-comum);
 }
 
 .title {
@@ -209,6 +208,34 @@ Botões
   background-color: var(--detail);
   border-color: var(--detail);
   color: #fff;
+}
+
+.btn-plus {
+  color: var(--primary);
+  border: none;
+  background-color: rgba(18, 0, 38, 0);
+}
+
+.btn-trash {
+  color: var(--secondary);
+  border: none;
+  background-color: rgba(18, 0, 38, 0.55);
+}
+
+.btn-arrow {
+  color: var(--primary);
+  border: none;
+  background-color: rgba(18, 0, 38, 0);
+  padding: 12px;
+}
+
+.btn-arrow:hover {
+  transform: scale(1.2);
+  color: var(--text);
+}
+
+.btn-icon:hover {
+  background-color: var(--text);
 }
 
 /* ============================

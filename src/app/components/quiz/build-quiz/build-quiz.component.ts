@@ -14,18 +14,26 @@ import Quiz from '../../../model/Quiz';
 export class BuildQuizComponent {
   public quiztitle: string = '';
   public quizDesc: string = '';
+  public error: boolean = false;
 
   constructor(public _service: QuizService) {}
 
   public saveQuiz(): void {
+    if (this.quiztitle.trim() === '') {
+      this.error = true;
+      return;
+    }
+
+    if (this.quiztitle.trim() === '') {
+      this.error = true;
+      return;
+    }
+
+    this.error = false;
     const quiz = new Quiz(this.quiztitle, this.quizDesc);
     this._service.makeQuiz(quiz);
 
     this.quiztitle = '';
     this.quizDesc = '';
-  }
-
-  public addQuestion(id: string) {
-    console.log(id);
   }
 }

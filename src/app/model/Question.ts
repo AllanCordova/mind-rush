@@ -12,6 +12,10 @@ export default class Question {
 
   constructor(private _text: string, private _answers: AnswerType[] = []) {}
 
+  public addAnswer(ans: string, select: boolean = false): void {
+    this._answers.push({ answer: ans, select: select });
+  }
+
   public get id(): string {
     return this._id;
   }
@@ -38,9 +42,5 @@ export default class Question {
 
   public set correctAnswerIndex(index: number) {
     this._correctAnswerIndex = index;
-  }
-
-  public addAnswer(ans: string, select: boolean = false): void {
-    this._answers.push({ answer: ans, select: select });
   }
 }

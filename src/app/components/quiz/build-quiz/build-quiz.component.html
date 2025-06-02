@@ -3,28 +3,39 @@
     <!-- 📘 Livro Esquerdo - Criar Quiz -->
     <div class="col-12 col-md-6">
       <div class="bg-glass rounded-4 p-4 shadow-lg">
-        <h2 class="pixel-xl title text-center mb-4">📘 Criar Quiz</h2>
+        <h2 class="pixel-font title text-center mb-4">Criar Quiz</h2>
 
         <div class="mb-3">
-          <label class="text pixel-md mb-2" for="title">Nome do Quiz</label>
+          <label class="pixel-font pixel-md mb-2" for="title"
+            >Nome do Quiz</label
+          >
           <input
             id="title"
             type="text"
-            class="form-control pixel-font pixel-sm form-control-lg border-secondary"
+            class="form-control pixel-font pixel-sm form-control-lg border-secondary mb-2"
             [(ngModel)]="quiztitle"
             placeholder="Cidade"
           />
+          @if (error && quiztitle.trim() === '') {
+          <span class="text-danger pixel-font pixel-sm"
+            >você precisa dar um nome para o Quiz!</span
+          >
+          }
         </div>
-
         <div class="mb-4">
-          <label class="text pixel-md mb-2" for="desc">Descrição</label>
+          <label class="pixel-font pixel-md mb-2" for="desc">Descrição</label>
           <input
             id="desc"
             type="text"
-            class="form-control pixel-font pixel-sm form-control-lg border-secondary"
+            class="form-control pixel-font pixel-sm form-control-lg border-secondary mb-2"
             [(ngModel)]="quizDesc"
             placeholder="Cidades do Brasil"
           />
+          @if (error && quizDesc.trim() === '') {
+          <span class="text-danger pixel-font pixel-sm"
+            >O quiz precisa de uma descrição!</span
+          >
+          }
         </div>
 
         <div class="d-flex justify-content-center">
@@ -41,7 +52,7 @@
     <!-- 📙 Livro Direito - Quizzes Criados -->
     <div class="col-12 col-md-6">
       <div class="bg-glass rounded-4 p-4 h-100 shadow-lg">
-        <h3 class="pixel-xl title text-center mb-4">📙 Quizzes Criados</h3>
+        <h3 class="pixel-font title text-center mb-4">Quizzes Criados</h3>
 
         <ul class="list-group list-group-flush">
           @for (quiz of _service.listQuiz; track quiz.id) {
