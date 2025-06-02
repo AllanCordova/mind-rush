@@ -98,7 +98,6 @@ html {
   background: url("../public/background.png") no-repeat center center fixed;
   background-size: cover;
   position: relative;
-  transition: background-size 0.3s ease, background-position 0.3s ease;
 }
 
 * {
