@@ -47,6 +47,21 @@
         routerLinkActive="active"
         >Regras</a
       >
+      <a
+        class="pixel-md text font-medium nav-link"
+        routerLink="/home/login"
+        routerLinkActive="active"
+        >Login</a
+      >
+      @if (isAdmin) {
+      <a
+        class="pixel-md text font-medium nav-link"
+        routerLink="/home/admin"
+        routerLinkActive="active"
+      >
+        Admin
+      </a>
+      }
     </nav>
   </div>
 

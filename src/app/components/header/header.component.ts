@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AuthService } from '../../services/auth-service.service';
 
 @Component({
   selector: 'app-header',
@@ -16,8 +17,18 @@ import { trigger, transition, style, animate } from '@angular/animations';
     ]),
   ],
 })
-export class HeaderComponent {
-  scrollTo(id: string) {
+export class HeaderComponent implements OnInit {
+  public isAdmin: boolean = false;
+
+  public constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.authService.isAdmin$.subscribe((admin) => {
+      this.isAdmin = admin;
+    });
+  }
+
+  public scrollTo(id: string) {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });

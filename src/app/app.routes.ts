@@ -5,6 +5,9 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { ListQuizComponent } from './components/quiz/list-quiz/list-quiz.component';
 import { StartQuizComponent } from './components/quiz/start-quiz/start-quiz.component';
 import { PerformanceQuizComponent } from './components/quiz/performance-quiz/performance-quiz.component';
+import { adminGuard } from './auth/admin.guard';
+import { QuizComponent } from './components/admin/quiz/quiz.component';
+import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -19,5 +22,14 @@ export const routes: Routes = [
   {
     path: 'start-quiz/:id/performance-quiz',
     component: PerformanceQuizComponent,
+  },
+  {
+    path: 'home/login',
+    component: LoginComponent,
+  },
+  {
+    path: 'home/admin',
+    component: QuizComponent,
+    canActivate: [adminGuard],
   },
 ];

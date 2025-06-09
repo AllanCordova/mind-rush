@@ -97,12 +97,10 @@ html {
   color: var(--text);
   background: url("../public/background.png") no-repeat center center fixed;
   background-size: cover;
-  position: relative;
 }
 
 * {
   scroll-behavior: smooth;
-  transition: all 0.3s ease-in-out;
 }
 
 /* ============================

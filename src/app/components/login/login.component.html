@@ -1,0 +1,38 @@
+<main class="container text-center bg p-4 rounded mt-4">
+  <div class="row justify-content-center align-items-center gap-2">
+    <div class="col-12">
+      <h2 class="pixel-font pixel-lg title">Entrar</h2>
+    </div>
+    <div class="col-12 col-lg-6">
+      <form
+        class="d-flex flex-column gap-3 align-items-start justify-content-center mt-2"
+      >
+        <label class="pixel-font pixel-md" for="email">Email:</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control pixel-font pixel-sm form-control-lg border-secondary mb-2"
+          placeholder="Email"
+          [(ngModel)]="emailForm"
+          name="email"
+        />
+        <label class="pixel-font pixel-md" for="password">Senha:</label>
+        <input
+          id="password"
+          type="password"
+          class="form-control pixel-font pixel-sm form-control-lg border-secondary mb-2"
+          placeholder="Senha"
+          [(ngModel)]="passwordForm"
+          name="password"
+        />
+        <button
+          (click)="handlerSubmit()"
+          type="submit"
+          class="btn-pixel btn-primary-pixel w-100"
+        >
+          Salvar
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
