@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IntroComponent } from './intro/intro.component';
-import { MobileIntroComponent } from './mobile-intro/mobile-intro.component';
-import { AboutComponent } from './about/about.component';
-import { HowPlayComponent } from './how-play/how-play.component';
+import { IntroComponent } from '../../components/intro/intro.component';
+import { MobileIntroComponent } from '../../components/mobile-intro/mobile-intro.component';
+import { AboutComponent } from '../../components/about/about.component';
+import { HowPlayComponent } from '../../components/how-play/how-play.component';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({

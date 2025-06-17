@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { QuizService } from '../../../services/quiz.service';
+import { QuizService } from '../../services/quiz.service';
 import { RouterModule } from '@angular/router';
-import Quiz from '../../../model/Quiz';
+import Quiz from '../../model/Quiz';
 
 @Component({
   selector: 'app-build-quiz',

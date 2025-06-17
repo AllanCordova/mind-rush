@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleComponent } from '../title/title.component';
 import { RouterModule } from '@angular/router';
-import { ImgServiceService } from '../../../../services/img-service.service';
+import { ImgServiceService } from '../../services/img-service.service';
 
 @Component({
   selector: 'app-mobile-intro',

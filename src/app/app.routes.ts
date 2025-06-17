@@ -1,13 +1,11 @@
 import { Routes } from '@angular/router';
-import { BuildQuizComponent } from './components/quiz/build-quiz/build-quiz.component';
-import { BuildQuestionComponent } from './components/quiz/build-question/build-question.component';
-import { HomeComponent } from './components/pages/home/home.component';
-import { ListQuizComponent } from './components/quiz/list-quiz/list-quiz.component';
-import { StartQuizComponent } from './components/quiz/start-quiz/start-quiz.component';
-import { PerformanceQuizComponent } from './components/quiz/performance-quiz/performance-quiz.component';
-import { adminGuard } from './auth/admin.guard';
-import { QuizComponent } from './components/admin/quiz/quiz.component';
-import { LoginComponent } from './components/login/login.component';
+import { BuildQuizComponent } from './components/build-quiz/build-quiz.component';
+import { BuildQuestionComponent } from './components/build-question/build-question.component';
+import { ListQuizComponent } from './components/list-quiz/list-quiz.component';
+import { StartQuizComponent } from './components/start-quiz/start-quiz.component';
+import { PerformanceQuizComponent } from './components/performance-quiz/performance-quiz.component';
+
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,14 +20,5 @@ export const routes: Routes = [
   {
     path: 'start-quiz/:id/performance-quiz',
     component: PerformanceQuizComponent,
-  },
-  {
-    path: 'home/login',
-    component: LoginComponent,
-  },
-  {
-    path: 'home/admin',
-    component: QuizComponent,
-    canActivate: [adminGuard],
   },
 ];

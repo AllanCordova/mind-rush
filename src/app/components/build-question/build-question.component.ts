@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { QuizService } from '../../../services/quiz.service';
-import Quiz from '../../../model/Quiz';
-import Question, { AnswerType } from '../../../model/Question';
+import { QuizService } from '../../services/quiz.service';
+import Quiz from '../../model/Quiz';
+import Question, { AnswerType } from '../../model/Question';
 
 @Component({
   selector: 'app-build-question',

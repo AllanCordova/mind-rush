@@ -12,7 +12,7 @@
 
 .card {
   max-height: 90vh;
-  min-height: 600px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
 }

@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
+
 @Component({
-  selector: 'app-header',
+  selector: 'app-header-quiz',
   imports: [RouterModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  templateUrl: './header-quiz.component.html',
+  styleUrl: './header-quiz.component.css',
   animations: [
     trigger('fadeIn', [
       transition(':enter', [
@@ -15,11 +16,4 @@ import { trigger, transition, style, animate } from '@angular/animations';
     ]),
   ],
 })
-export class HeaderComponent {
-  public scrollTo(id: string) {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-}
+export class HeaderQuizComponent {}

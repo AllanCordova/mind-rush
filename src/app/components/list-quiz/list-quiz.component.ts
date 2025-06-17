@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { QuizApiService } from '../../../services/quiz-api-service.service';
-import Quiz from '../../../model/Quiz';
+import Quiz from '../../model/Quiz';
 import { RouterModule } from '@angular/router';
 import { delay, finalize } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
-import { QuizService } from '../../../services/quiz.service';
+import { QuizService } from '../../services/quiz.service';
+import { QuizApiService } from '../../services/quiz-api-service.service';
 
 @Component({
   selector: 'app-list-quiz',

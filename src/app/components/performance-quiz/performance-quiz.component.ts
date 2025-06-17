@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { QuizService } from '../../../services/quiz.service';
-import Quiz from '../../../model/Quiz';
-import { ImgServiceService } from '../../../services/img-service.service';
+import { QuizService } from '../../services/quiz.service';
+import Quiz from '../../model/Quiz';
+import { ImgServiceService } from '../../services/img-service.service';
 
 @Component({
   selector: 'app-performance-quiz',

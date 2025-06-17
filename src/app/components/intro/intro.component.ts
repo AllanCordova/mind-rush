@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TitleComponent } from '../title/title.component';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { RouterModule } from '@angular/router';
-import { ImgServiceService } from '../../../../services/img-service.service';
+import { ImgServiceService } from '../../services/img-service.service';
 
 @Component({
   selector: 'app-intro',
